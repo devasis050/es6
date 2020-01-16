@@ -1,0 +1,58 @@
+<html>
+
+<body>
+<script type="text/javascript">
+
+    var outer = function(v) {
+        //If you make this var then it will print first.
+        // Why? In closure the reference is bound with inner conext not the value. So when we change the value 
+        // it is changed in inner as well. But when we make it var we, every time we call outer() a new reference 
+        //is created and and is used innner context. But we dont have that reference avalable to change.
+        // Lets do a sample demo by creating two inner changing the refernce in one inner.  
+        str = v;
+        function inner() {
+            console.log(str)
+        }
+        return inner;
+    }
+
+    var inn = outer('first');
+    outer('second');
+    inn();
+    console.log("============demo as mentioned above============")
+
+function outer2() {
+    var shared = "hello";
+
+    function setter(nv) {
+        shared = nv;
+    }
+
+    function getter(){
+        console.log(shared);
+    }
+
+    return {get:getter, set:setter};
+} 
+
+var obj = outer2();
+obj.get();
+obj.set("Hi");
+obj.get();
+
+    console.log("=========another global example===============");
+    var cli = 'asd';
+    function print(){
+        console.log(cli);
+    }
+    setTimeout(print, 2000);
+    cli = 'xyx';
+
+
+
+
+</script>
+
+</body>
+
+</html>

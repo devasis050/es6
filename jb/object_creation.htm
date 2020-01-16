@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <title>Object Creation in JS</title>
+</head>
+<body>
+    <script>
+
+        //Object literal. This internally uses new Object().
+        var obj = {};
+        //factory method
+
+        function createEmployee(ename, age)
+        {
+            var emp = {};
+            emp.ename = ename;
+            emp.age = age;
+            return emp;
+        }
+
+        var emp1 = createEmployee("Deva", 21);
+        console.log("emp1", emp1);
+
+        //Constructor
+        /*
+            Constructor is a special type of function. You can think in a way when you 
+            call a method by using new JS adda below two line. (1st and last) for easuer understanding.
+        */
+
+        function Employee(ename, age)
+        {
+            //var this = {}
+            this.ename = ename;
+            this.age = age;
+            //return this.
+        }
+
+        var emp2 = new Employee("Hell", 12);
+        console.log("emp2", emp2);
+
+    </script>
+</body>
+</html>>

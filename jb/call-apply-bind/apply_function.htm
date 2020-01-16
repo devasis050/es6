@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        //apply() is similar to call(). Only diffence is that apply tales arguments as an array.
+        function printParents(father, mother)
+        {
+            console.log(this.person + " is son of " + father + " and " + mother);
+        }
+
+        printParents.call({person:"Ranbir"}, "Rishi", "Neetu");
+        printParents.apply({person:"Ranbir"}, ["Rishi", "Neetu"]);
+
+
+    </script>
+</body>
+</html>

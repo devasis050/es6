@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+
+        /*Every function has a property "call()". 
+          When we execute call of any function it actually executes the function. e,g below.
+          We can actually see other similar properties like apply and call in prototype.
+          (print it in firefox)
+        */
+        function printHello()
+        {
+            console.log("Hello");
+        }
+        printHello.call();
+        
+        /* call() takes an argument object. Which acts as this.*/
+
+        function printName()
+        {
+            console.log("Name:" + this.name);
+        }
+        printName.call({name:"Deva"})
+
+        //When method has arguments then call method 1st argument will be this and method arguments.
+        function sayHello(greetStr)
+        {
+            console.log(greetStr + " " + this.name);
+        }
+        sayHello.call({name:"Deva"}, "Hi");
+
+    </script>
+    
+</body>
+</html>
